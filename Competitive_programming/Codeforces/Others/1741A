@@ -1,0 +1,22 @@
+for _ in range(int(input())):
+    a,b = map(str,input().split())
+    c,d = a[-1],b[-1]
+    l,r=a.count('X'),b.count('X')
+    if c=='S':
+        l*=-1
+    if d=='S':
+        r*=-1
+    if c=='L':
+        l+=5
+    if d=='L':
+        r+=5
+    if c=='M':
+        l+=1
+    if d=='M':
+        r+=1
+    if r==l:
+        print('=')
+    elif l>r:
+        print('>')
+    else:
+        print('<')

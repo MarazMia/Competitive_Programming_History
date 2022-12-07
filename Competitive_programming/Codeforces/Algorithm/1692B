@@ -1,0 +1,17 @@
+import math
+ 
+ 
+def main():
+ 
+    for _ in range(int(input())):
+        n=int(input())
+        a=list(map(int,input().split()))
+        ans=n-len(set(a))
+        if ans%2==0:
+            print(n-ans)
+        else:
+            print(n-ans-1)
+    return
+    
+if __name__ == '__main__':
+    main()

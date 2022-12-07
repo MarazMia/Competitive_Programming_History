@@ -1,0 +1,5 @@
+    def all(n):
+        return n*(n+1)//2
+    for _ in range(int(input())):
+        n,m=map(int,input().split())
+        print(all(m)+all(n)*m-m)

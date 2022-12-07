@@ -1,0 +1,44 @@
+import math
+def main():
+ 
+    for _ in range(int(input())):
+        n,m,k=map(int,input().split())
+        a=list(input())
+        a.sort(reverse=True)
+        b=list(input())
+        b.sort(reverse=True)
+        c=""
+        cnt1,cnt2=0,0
+        while True:
+            if a[-1]<=b[-1]:
+                if cnt1<k:
+                    cnt2=0
+                    cnt1+=1
+                    c+=a[-1]
+                    a.pop()
+                else:
+                    cnt1=0
+                    cnt2=1
+                    c+=b[-1]
+                    b.pop()
+            else:
+                if cnt2<k:
+                    cnt1=0
+                    cnt2+=1
+                    c+=b[-1]
+                    b.pop()
+                else:
+                    cnt2=0
+                    cnt1=1
+                    c+=a[-1]
+                    a.pop()
+            if not a or not b:
+                break
+        print(c)
+ 
+        
+ 
+    return
+    
+if __name__ == '__main__':
+    main()

@@ -1,0 +1,44 @@
+import math
+from re import X
+ 
+def addHour(ah,am,gh,gm):
+    am+=gm
+    ah+=am//60
+    am%=60
+    ah+=gh
+    ah%=24
+ 
+    return [ah,am]
+def main():
+ 
+    for _ in range(int(input())):
+        d=set()
+        s,x=map(str,input().split())
+        x=int(x)
+        ah,am=s.split(":")
+        ah,am=int(ah),int(am)
+        gh,gm=x//60,x%60
+        while 1:
+            bal=addHour(ah,am,gh,gm)
+            nah,nam=bal[0],bal[1]
+            sh,sm=str(nah),str(nam)
+            if nah<10:
+                sh='0'+sh
+            if nam<10:
+                sm='0'+sm
+            ba=sh+':'+sm
+            if ba in d:
+                break
+            d.add(ba)
+            ah,am=nah,nam
+        d=list(d)
+        # print(d)
+        ans=0
+        for i in d:
+            if i==i[::-1]:
+                ans+=1
+        print(ans)
+    return
+    
+if __name__ == '__main__':
+    main()

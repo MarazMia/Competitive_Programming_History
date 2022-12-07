@@ -1,0 +1,13 @@
+    for _ in range(int(input())):
+        n,mm=map(int,input().split())
+        w=[]
+        for i in range(n):
+            w.append(input())
+        m=10e6
+        for i in range(n):
+            for j in range(i+1,n):
+                dis=0
+                for k in range(mm):
+                    dis+=abs(ord(w[i][k])-ord(w[j][k]))
+                m=min(dis,m)
+        print(m)

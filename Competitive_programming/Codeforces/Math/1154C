@@ -1,0 +1,17 @@
+a=list(map(int,input().split()))
+bal=min(a[0]//3,a[1]//2,a[2]//2)
+ans=0
+a[0]-=bal*3
+a[1]-=bal*2
+a[2]-=bal*2
+ls=[1,0,0,1,2,0,2]
+for i in range(7):
+    day=i
+    b=a.copy()
+    val=0
+    while b[ls[day]]>0:
+        b[ls[day]]-=1
+        day=(day+1)%7
+        val+=1
+    ans=max(ans,bal*7+val)
+print(ans)

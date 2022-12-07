@@ -1,0 +1,29 @@
+import math
+for _ in range(int(input())):
+    n = int(input())
+    a = list(map(int,input().split()))
+    ps = [a[0]]
+    for i in range(1,n):
+        ps.append(ps[i-1]+a[i])
+    # print(ps)
+    chk = ps[-1]
+    ans=n
+    pre=0
+    j=0
+    for i in range(n):
+        if chk%ps[i]==0:
+            lm=i+1
+            pre=i
+            bal=ps[i]
+            flg=False
+            for j in range(i+1,n):
+                if ps[j]-ps[pre]==bal:
+                    if j==n-1:
+                        flg=True
+                    # print(ps[j],pre,j,lm)
+                    lm=max(lm,j-pre)
+                    pre=j
+            if ps[n-1]-ps[pre]==bal or flg:
+                ans=min(ans,lm)
+ 
+    print(ans)

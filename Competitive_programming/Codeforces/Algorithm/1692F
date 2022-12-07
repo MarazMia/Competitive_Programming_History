@@ -1,0 +1,44 @@
+from cmath import e
+import math
+from re import X
+ 
+def minO(nums,x):
+        target = x
+        curr_sum, max_len = 0, 0
+        start_idx = 0
+        found = False
+        for end_idx in range(len(nums)):
+            curr_sum += nums[end_idx]
+            while start_idx <= end_idx and curr_sum > target:
+                curr_sum -= nums[start_idx]
+                start_idx += 1
+            if curr_sum == target:
+                found = True
+                max_len = max(max_len, end_idx - start_idx + 1)
+ 
+        return len(nums) - max_len if found else -1
+    
+def main():
+    for _ in range(int(input())):
+        d={}
+        for i in range(10):
+            d[i]=0
+        n,a=int(input()),list(map(int,input().split()))
+        for item in (a):
+            d[item%10]=min(3,d[item%10]+1)
+ 
+        res=[]
+        for i in d:
+            res.extend([i]*d[i])
+        ans='no'
+        m=len(res)
+        for i in range(m):
+            for j in range(i+1,m):
+                for k in range(j+1,m):
+                    if (res[i]+res[j]+res[k])%10==3:
+                        ans='yes'
+                        break
+        print(ans)     
+if __name__ == '__main__':
+    
+    main()

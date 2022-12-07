@@ -1,0 +1,21 @@
+import math
+def main():
+    for _ in range(int(input())):
+        n=int(input())
+        a=list(map(int,input().split()))
+        b=list(map(int,input().split()))
+        bal=[]
+        for i in range(n):
+            bal.append(a[i]-b[i])
+        ans='yes'
+        mx=max(bal)
+        for i in range(n):
+            if bal[i]<0 or (bal[i]!=mx and a[i]-bal[i]!=0):
+                ans='no'
+                break
+        
+        print(ans)
+    return
+    
+if __name__ == '__main__':
+    main()

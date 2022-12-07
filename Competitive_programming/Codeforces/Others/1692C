@@ -1,0 +1,24 @@
+import math
+ 
+ 
+def main():
+ 
+    for _ in range(int(input())):
+        pre=-1
+        input()
+        x,y,flag=-1,-1,True
+        for i in range(8):
+            s=input()
+            b=s.count('#')
+            if b<pre and flag:
+                for j in range(8):
+                    if s[j]=='#':
+                        x,y=i+1,j+1
+                        flag=False
+                        break
+            pre=b
+        print(x,y)
+    return
+    
+if __name__ == '__main__':
+    main()

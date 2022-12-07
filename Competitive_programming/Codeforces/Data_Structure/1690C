@@ -1,0 +1,46 @@
+    import math
+    def main():
+        for _ in range(int(input())):
+            n=int(input())
+            a=list(map(int,input().split()))
+            b=list(map(int,input().split()))
+            # d=[]
+            # bal=0
+            # for i in range(n):
+            #     dif=a[i]-b[i]
+            #     if dif<0:
+            #         bal=1
+            #     if b[i]==0:
+            #         continue
+            #     d.append(dif)
+            # if bal:
+            #     print('no')
+            #     continue
+            # e,o=False,False
+            # for i in d:
+            #     if i%2==0:
+            #         e=True
+            #     else:
+            #         o=True
+            # if e and o:
+            #     print('no')
+            # else:
+            #     print('yes')
+     
+            pre=[a[0],b[0]]
+            d=[b[0]-a[0]]
+            for i in range(1,n):
+                if a[i]<pre[1]:
+                    d.append(b[i]-pre[1])
+                    pre=[pre[1],b[i]]
+                else:
+                    d.append(b[i]-a[i])
+                    pre=[a[i],b[i]]
+            for i in d:
+                print(i,end=' ')
+            print()
+        return
+        
+    if __name__ == '__main__':
+        main()
+            

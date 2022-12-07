@@ -1,0 +1,31 @@
+for _ in range(int(input())):
+    n,m=map(int,input().split())
+    mat=[]
+    for i in range(n):
+        mat.append(list(map(int,input().split())))
+    ans=0
+    for i in range(n):
+        for j in range(m):
+            ans1=mat[i][j]
+            a,b=i+1,j+1
+            while a<n and b<m:
+                ans1+=mat[a][b]
+                a+=1
+                b+=1
+            a,b=i-1,j-1
+            while a>-1 and b>-1:
+                ans1+=mat[a][b]
+                a-=1
+                b-=1
+            a,b=i+1,j-1
+            while a<n and b>-1:
+                ans1+=mat[a][b]
+                a+=1
+                b-=1
+            a,b=i-1,j+1
+            while a>-1 and b<m:
+                ans1+=mat[a][b]
+                a-=1
+                b+=1
+            ans=max(ans,ans1)
+    print(ans)
