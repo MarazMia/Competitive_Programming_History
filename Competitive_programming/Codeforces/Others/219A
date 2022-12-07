@@ -1,0 +1,23 @@
+    #include <bits/stdc++.h>
+    using namespace std;
+     
+    int main() {
+    	int n, mp[26] = {};
+    	string s;
+    	cin >> n >> s;
+    	for (char i : s) {
+    		mp[i - 'a']++;
+    	}
+    	for (int &i : mp) {
+    		if (i % n != 0) {
+    			cout << -1 << "\n", exit(0);
+    		} i /= n;
+    	}
+    	s = "";
+    	for (int i = 0; i < 26; i++) {
+    		while (mp[i]--)s += i + 'a';
+    	}
+    	while (n--) {
+    		cout << s;
+    	} cout << '\n';
+    }

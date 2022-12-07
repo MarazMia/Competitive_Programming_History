@@ -1,0 +1,8 @@
+    n,m=map(int,input().split())
+    ans=0
+    rhs=n-m**2
+    for i in range(10005):
+        lhs=i**4-m*2*i**2+i
+        if lhs==rhs and m-i**2>=0:
+            ans+=1
+    print(ans)

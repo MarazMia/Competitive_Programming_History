@@ -1,0 +1,15 @@
+    n, m = map(int, input().split())
+    ans = 0
+    s = ['']*n
+    ls = [input() for i in range(n)]
+    for j in range(m):
+        chk=0
+        for i in range(n-1):
+            if(s[i]+ls[i][j] > s[i+1]+ls[i+1][j]):
+                ans += 1
+                break
+            chk+=1
+        if chk==n-1:
+            for k in range(n):
+                s[k]+=ls[k][j]
+    print(ans)

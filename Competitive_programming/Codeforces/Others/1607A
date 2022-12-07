@@ -1,0 +1,11 @@
+    for _ in range(int(input())):
+        alphabets=input()
+        s = list(input())
+        val =[]
+        for i in s:
+            val.append(alphabets.index(i))
+        ans = 0
+        for i in range(1,len(val)):
+            ans+=abs(val[i]-val[i-1])
+        print(ans)
+        
