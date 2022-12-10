@@ -1,0 +1,26 @@
+/*
+using of priority queue....very helpful....
+a priority queue contain maximum on the top
+*/
+#include <bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int n,m,i,maxx=0,ans=0,num;
+    cin>>n>>m;
+    priority_queue<int>pq;
+    for(i=0;i<n+m;i++)
+    {
+        cin>>num;
+        if(num==-1)
+        {
+            ans=pq.top();
+            cout<<ans<<endl;
+            pq.pop();
+        }
+        else
+            pq.push(num);
+    }
+    return 0;
+}
+

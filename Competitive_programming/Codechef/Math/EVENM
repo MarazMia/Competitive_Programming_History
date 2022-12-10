@@ -1,0 +1,24 @@
+def inp():
+    ls=list(map(int,input().split()))
+    return ls
+t=int(input())
+for ii in range(t):
+    n=int(input())
+    ls=[]
+    for i in range(n*n):
+        ls.append(i+1)
+    turn=0
+    ind=0
+    while turn<n:
+        if turn%2==1:
+            for i in range(ind+n-1,ind-1,-1):
+                print(ls[i],end=" ")
+            ind+=n
+            turn+=1
+            print()
+        else:
+            turn+=1
+            for i in range(ind,ind+n):
+                print(ls[i],end=" ")
+            print()
+            ind+=n

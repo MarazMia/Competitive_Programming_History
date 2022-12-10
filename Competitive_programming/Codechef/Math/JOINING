@@ -1,0 +1,13 @@
+from cmath import e
+import math
+from re import X
+    
+def main():
+    for _ in range(int(input())):
+        n,k=map(int,input().split())
+        print(math.ceil(n/5)-math.ceil(k/5)) 
+if __name__ == '__main__':
+    
+    main()
+
+        

@@ -1,0 +1,8 @@
+for _ in range(int(input())):
+    a=int(input())
+    if a>=2000:
+        print(1)
+    elif a>=1600:
+        print(2)
+    else:
+        print(3)

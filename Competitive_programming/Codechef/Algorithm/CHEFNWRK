@@ -1,0 +1,100 @@
+import math
+import sys
+#####sorting a dictionary by the values#####
+def dict_sort(ans):
+    ans=sorted(ans.items(),reverse=True,key=lambda kv:(kv[1]))
+##### naive method for testing prime or not#####
+def is_prime(n):
+    if n==1:
+        return 0
+    for i in range(2,int(math.sqrt(n))+1):
+        if n%i==0:
+            return False
+    return True
+#####greatest common divisor of two numbers#####
+def gcd(a,b):
+    if b==0:
+        return a
+    return gcd(b,a%b)
+#####least common multiplyer of two numbers#####
+def lcm(a,b):
+    return (a*b)//gcd(a,b)
+#####function that return all the letters#####
+def alphabates():
+    return "abcdefghijklmnopqrstuvwxyz"
+#####binary search#####
+def binary_search(ls,n,flag):
+    low=0
+    hi=n-1
+    while(low<=hi):
+        mid=(low+hi)//2
+        if ls[mid]==flag:
+            return mid
+        elif ls[mid]>flag:
+            hi=mid-1
+        else:
+            low=mid+1
+    return -1
+#####Decimal to Binary(8 bits)#####
+def Binary(n):
+    if n==0:
+        return "00000000"
+    binary = "" 
+    i = 0
+    while n > 0 and i<=8: 
+        s1 = str(int(n%2)) 
+        binary = binary + s1 
+        n /= 2
+        i = i+1
+        d = binary[::-1] 
+    return d
+#####quadratic#####
+def qdrt(x,a,b,c):
+    return a*x*x+b*x+c
+#####taking an array/list as input#####
+def inp():
+    ls=list(map(int,input().split()))
+    return ls
+#####taking multiple inputs#####
+def mult_inp():
+    return map(int,input().split())
+#####0-1 Knapsack#####
+def knapSack(W, wt, val, n): 
+    K = [[0 for x in range(W + 1)] for x in range(n + 1)]  
+    for i in range(n + 1): 
+        for w in range(W + 1): 
+            if i == 0 or w == 0: 
+                K[i][w] = 0
+            elif wt[i-1] <= w: 
+                K[i][w] = max(val[i-1]+K[i-1][w-wt[i-1]],  K[i-1][w]) 
+            else: 
+                K[i][w] = K[i-1][w] 
+  
+    return K[n][W] 
+#####Main function starts from here#####
+t=int(input())
+for _i in range (t):
+    n,k=mult_inp()
+    ls=inp()
+    ans=0
+    pre=0
+    f=0
+    for i in range(n):
+        if ls[i]>k:
+            print(-1)
+            f=1
+            break
+        elif pre+ls[i]>k and pre!=0:
+            ans+=1
+            pre=ls[i]
+        else:
+            pre+=ls[i]
+    if f==1:
+        continue
+    if pre<=k:
+        ans+=1
+    #print("pre",pre)
+    if ans==0:
+        print(-1)
+    else:
+        print(ans)

@@ -1,0 +1,21 @@
+t=int(input())
+for i in range(t):
+    n,s=map(int,input().split())
+    ls=list(map(int,input().split()))
+    flag=list(map(int,input().split()))
+    d=[]
+    f=[]
+    for j in range(n):
+        if flag[j]==0:
+            d.append(ls[j])
+        else:
+            f.append(ls[j])
+    d.sort()
+    f.sort()
+    if len(d)<2 or len(f)<2:
+        print("no")
+    else:
+        if d[0]+f[0]+s>100:
+            print("no")
+        else:
+            print("yes")

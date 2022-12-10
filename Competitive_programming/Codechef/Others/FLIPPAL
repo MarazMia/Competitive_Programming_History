@@ -1,0 +1,9 @@
+
+for _ in range(int(input())):
+    n=int(input())
+    s=input()
+    a,b=s.count('0'),s.count('1')
+    if a%2==0 or b%2==0:
+        print('YES')
+    else :
+        print("NO")

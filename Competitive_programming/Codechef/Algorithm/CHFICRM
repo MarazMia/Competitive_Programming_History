@@ -1,0 +1,48 @@
+import math
+#####sorting a dictionary#####
+def dict_sort(ans):
+    ans=sorted(ans.items(),reverse=True,key=lambda kv:(kv[1]))
+def is_prime(n):
+    if n==1:
+        return 0
+    for i in range(2,int(math.sqrt(n))+1):
+        if n%i==0:
+            return False
+    return True
+def inp():
+    ls=list(map(int,input().split()))
+    return ls
+t=int(input())
+for ii in range(t):
+    n=int(input())
+    ls=inp()
+    if ls[0]!=5:
+        print('NO')
+    else:
+        if 15 in ls:
+            flag = 0
+            hand = 5
+            for i in range(1, n):
+                if ls[i] - 5 <= hand:
+                    hand = hand - ls[i] + 10
+                else:
+                    print('NO')
+                    flag = 1
+                    break
+            if flag == 0:
+                print('YES')
+        else:
+            flag=0
+            hand=5
+            for i in range(1,n):
+                if ls[i]==5:
+                    hand+=5
+                else:
+                    if hand>=5:
+                        hand=hand-5
+                    else:
+                        flag=1
+                        print('NO')
+                        break
+            if flag==0:
+                print('YES')

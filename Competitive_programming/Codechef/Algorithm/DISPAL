@@ -1,0 +1,37 @@
+from cmath import e
+import math
+from re import X
+
+def allAlpha():
+    return 'abcdefghijklmnopqrstuvwxyz'
+
+def main():
+    for _ in range(int(input())):
+        n,x=map(int,input().split())
+        if x==1:
+            print('a'*n)
+            continue
+        if 1+n//2==x:
+            ans=allAlpha()[:x-1]
+            if n%2==1:
+                print(ans+"z"+ans[::-1])
+            else:
+                print(-1)
+            continue
+        if n//2<x:
+            print(-1)
+            continue
+        _1stportion = allAlpha()[:x]
+        midportion=''
+        _2ndportion = _1stportion[::-1]
+        rem = n-len(_1stportion)*2
+        if rem>0:
+            midportion="a"*rem
+        print(_1stportion+midportion+_2ndportion)
+
+
+if __name__ == '__main__':
+    
+    main()
+
+        

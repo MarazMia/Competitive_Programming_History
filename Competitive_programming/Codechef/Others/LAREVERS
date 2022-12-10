@@ -1,0 +1,21 @@
+import math
+k=int(input())
+ls=[]
+for i in range(k):
+    c = input()
+    ls.append(c)
+j=k-1
+while j>=0:
+    ans=str(ls[j])
+    newls=list(ans.split())
+    h=len(newls)-1
+    while h>=0:
+        string=newls[h]
+        for l in string:
+            if l.isalpha() or l.isspace():
+                print(l,end="")
+        print(" ",end="")
+        h-=1
+    print()
+    j-=1
+

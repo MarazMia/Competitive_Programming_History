@@ -1,0 +1,46 @@
+import math
+#####sorting a dictionary#####
+def dict_sort(ans):
+    ans=sorted(ans.items(),reverse=True,key=lambda kv:(kv[1]))
+flag=[0]*1000002
+def seive_primes():
+    flag[0]=flag[1]=1
+    i=2
+    while i*i<=1000000:
+        if flag[i]==0:
+            j=i*i
+            while j<=1000000:
+                flag[j]=1
+                j+=i
+        i+=1
+def sqr(n):
+    return n*n
+def inp():
+    ls=list(map(int,input().split()))
+    return ls
+t=int(input())
+for ii in range(t):
+    s=input()
+    n=len(s)
+    ans=i=0
+    while i<n-1:
+        if s[i]=='x' and s[i+1]=='y':
+            ans+=1
+            i+=2
+        elif s[i]=='y' and s[i+1]=='x':
+            ans+=1
+            i+=2
+        else:
+            i+=1
+    ans1 = i = 0
+    while i < n - 1:
+        if s[i] == 'y' and s[i + 1] == 'x':
+            ans1 += 1
+            i += 2
+        elif s[i] == 'x' and s[i + 1] == 'y':
+            ans1 += 1
+            i += 2
+        else:
+            i += 1
+    print(max(ans,ans1))
+

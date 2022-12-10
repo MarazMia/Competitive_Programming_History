@@ -1,0 +1,12 @@
+for _ in range(int(input())):
+    n,k=map(int,input().split())
+    chk=(n+1)*n//2
+    if k<chk:
+        print(-1)
+    elif chk==k:
+        print('1 '*n[:-2])
+    else:
+        ans='1 '*n
+        ans=ans[:-2]
+        ans+=str(k-chk+1)
+        print(ans)

@@ -1,0 +1,36 @@
+import math
+#####sorting a dictionary#####
+def dict_sort(ans):
+    ans=sorted(ans.items(),reverse=True,key=lambda kv:(kv[1]))
+def is_prime(n):
+    if n==1:
+        return 0
+    for i in range(2,int(math.sqrt(n))+1):
+        if n%i==0:
+            return False
+    return True
+def inp():
+    ls=list(map(int,input().split()))
+    return ls
+t=int(input())
+for ii in range(t):
+    n=int(input())
+    if n%2==1:
+        print(n//2)
+    else:
+        if (n//2)%1==1:
+            print(n//4)
+        else:
+            flag=[]
+            ans=0
+            for i in range(64):
+                flag.append(2**i)
+            for i in range(64):
+                    for j in range(64):
+                        if n%flag[j]==0:
+                            ans=flag[j]
+                        else:
+                            break
+            print(n//(ans*2))
+
+

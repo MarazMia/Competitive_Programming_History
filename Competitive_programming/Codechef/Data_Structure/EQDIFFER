@@ -1,0 +1,17 @@
+for _ in range(int(input())):
+        n=int(input())
+        a=list(map(int,input().split()))
+        if len(a)<=2:
+            print(0)
+            continue
+        if len(set(a))==n:
+            print(n-2)
+            continue
+        d={}
+        for i in a:
+            if i in d:
+                d[i]+=1
+            else:
+                d[i]=1
+        z=max(d.values())
+        print(n-z)

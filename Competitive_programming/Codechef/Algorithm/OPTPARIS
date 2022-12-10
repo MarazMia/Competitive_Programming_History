@@ -1,0 +1,24 @@
+import math
+
+def factors(n):
+    i,res=1,0
+    while i*i<=n:
+        if n%i==0:
+            res+=1
+            if i!=n//i:
+                res+=1
+        i+=1
+    return res
+
+def main():
+    for _ in range(int(input())):
+        n=int(input())
+        if n%2==0:
+            print(factors(n)*2-3)
+        else:
+            print(factors(n)*2-2)
+if __name__ == '__main__':
+    
+    main()
+
+        

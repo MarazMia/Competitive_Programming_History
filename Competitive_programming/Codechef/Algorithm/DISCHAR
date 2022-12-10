@@ -1,0 +1,25 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int t,i,ans=0,j=0;
+    string str;
+    cin>>t;
+    while(t--)
+    {
+        cin>>str;
+        sort(str.begin(),str.end());
+        for(i=1;i<str.size();i++)
+        {
+            if(str[j]==str[i])
+            {
+                ans++;
+            }
+            else
+                j=i;
+        }
+       cout<<str.size()-ans<<endl;
+       ans=0,j=0;
+    }
+    return 0;
+}

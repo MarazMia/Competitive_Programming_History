@@ -1,0 +1,23 @@
+import heapq
+for _ in range(int(input())):
+    n,x,y=map(int,input().split())
+    a=list(map(int,input().split()))
+    heapq.heapify(a)
+    while y>0:
+        bal=a[0]
+        if x^bal>bal:
+            heapq.heappop(a)
+            heapq.heappush(a,x^bal)
+            y-=1
+        else:
+            break
+        
+    if y%2:
+        bal=a[0]
+        heapq.heappop(a)
+        heapq.heappush(a,x^bal)
+    while a:
+        print(heapq.heappop(a),end=' ')
+    print()
+        
+        

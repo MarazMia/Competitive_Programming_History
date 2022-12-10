@@ -1,0 +1,16 @@
+import math
+t=int(input())
+for ii in range(t):
+    n,k=map(int,input().split())
+    ls=list(map(int,input().split()))
+    ls.sort()
+    ans1=abs(sum(ls[k:n])-sum(ls[0:k]))
+    #print(ls[n:k:-1],ls[0:n-k])
+    if k<=n//2:
+        print(ans1)
+    else:
+        ls.sort(reverse=True)
+        print(abs(sum(ls[k:n])-sum(ls[0:k])))
+        
+        
+    

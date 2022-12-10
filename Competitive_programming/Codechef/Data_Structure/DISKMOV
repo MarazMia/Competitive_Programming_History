@@ -1,0 +1,24 @@
+for _ in range(int(input())):
+    n,k=map(int,input().split())
+    a=list(map(int,input().split()))
+    sa=set(a)
+    mx=2*n
+    ans=0
+    mn=[]
+    for i in range(1,2*n+1):
+        if len(mn)==k:
+            break
+        if i not in sa:
+            mn.append(i)
+    mns=sum(mn)
+    # print('minimum choices ',mn)
+    if mx in sa:
+        ans=k*mx-mns
+    else:
+        m=max(a)
+        ans=mx*k-(mns-mn[-1]+mx)
+        if m>mn[-1]:
+            ans=max(ans,m*k-mns)
+                
+        
+    print(ans)

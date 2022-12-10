@@ -1,0 +1,11 @@
+for _ in range(int(input())):
+    ls=list(map(int,input().split()))
+    a,b=max(ls),min(ls)
+    s=set()
+    for i in range(32):
+        s.add(2**i)
+    if a%b==0 and a//b in s:
+        print('YES')
+        continue
+    print('NO')
+    

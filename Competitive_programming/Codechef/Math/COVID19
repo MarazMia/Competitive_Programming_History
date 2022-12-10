@@ -1,0 +1,30 @@
+import math
+t=int(input())
+for ii in range(t):
+    n=int(input())
+    ls=list(map(int,input().split()))
+    ans=[]
+    for i in range(n):
+        flag=ls[i]
+        res=1
+        for j in range(i+1,n):
+            if abs(ls[j]-flag)<3:
+                res+=1
+                flag=ls[j]
+            else:
+                break
+        k=i-1
+        flag=ls[i]
+        while k>=0:
+            if abs(ls[k]-flag)<3:
+                res+=1
+                flag=ls[k]
+            else:
+                break
+            k-=1
+        ans.append(res)
+    #print(ans)
+    print(min(ans),max(ans))
+
+
+

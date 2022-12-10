@@ -1,0 +1,48 @@
+import math 
+import sys
+def mult_inp():
+    return map(int,input().split())
+
+def arr():
+    return list(map(int,input().split()))
+
+def binarySearch(a,item,l,r):
+    while l<=r:
+        mid=(l+r)//2
+        if a[mid]==item:
+            return mid
+        if a[mid]<item:
+            l=mid+1
+        else:
+            r=mid-1
+    return -1
+
+def gcd(a,b):
+    if (b == 0):
+        return a
+    return gcd(b, a % b)
+     
+
+def _01knapsack(W,wt,p,n):
+    ###dp table
+    k = [[0 for i in range(W+1)] for i in range(n+1)]
+    for x in range(n+1):
+        for w in range(W+1):
+            if x == 0 or w == 0 :
+                k[x][w]=0
+            elif wt[x-1] <= w:
+                k[x][w] = max(k[x-1][w] , k[x-1][w-wt[x-1]] + p[x-1])
+            else:
+                k[x][w] = k[x-1][w]
+    return k[n][W]
+
+def solve():    
+    n=int(input())
+    s1=input()
+    s2=input()
+    print(min(s1.count('1'),s2.count('1'),n//2))
+
+if __name__=='__main__':
+    t=int(input())
+    for _ in range(t):
+        solve()

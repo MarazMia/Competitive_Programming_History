@@ -1,0 +1,23 @@
+import math
+t=int(input())
+maxx=0
+winner=0
+prea=0
+preb=0
+for i in range(t):
+    a,b=map(int,input().split())
+    a+=prea
+    b+=preb
+    prea=a
+    preb=b
+    #print(a,b)
+    if abs(a-b)>maxx:
+        maxx=abs(a-b)
+        if a - b > 0:
+            winner = 1
+        else:
+            winner = 2
+print(winner,maxx)
+
+
+

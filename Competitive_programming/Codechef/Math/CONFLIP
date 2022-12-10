@@ -1,0 +1,17 @@
+import math
+t=int(input())
+for ii in range(t):
+    g=int(input())
+    for i in range(g):
+        I,n,q=map(int,input().split())
+        if n%2==0:
+            print(n//2)
+        else:
+            if I==q==1 or I==q==2:
+                print(n//2)
+            else:
+                print(n//2+1)
+            
+        
+        
+    

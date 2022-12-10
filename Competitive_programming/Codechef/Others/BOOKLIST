@@ -1,0 +1,9 @@
+import math
+t=int(input())
+a=list(map(int,input().split()))
+k=int(input())
+for i in range(k):
+    c = int(input())
+    print(a[c - 1])
+    a.pop(c-1)
+

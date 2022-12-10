@@ -1,0 +1,15 @@
+import math
+for _ in range(int(input())):
+    n=int(input())
+    a=list(map(int,input().split()))
+    ans=[]
+    c=a[:n//2]
+    d=a[math.ceil(n/2):]
+    d=d[::-1]
+    # print(c,d)
+    for i in range(len(c)):
+        ans.append(d[i]-c[i])
+    if ans!=sorted(ans,reverse=True) or min(ans)<0:
+        print(-1)
+    else:
+        print(ans[0])

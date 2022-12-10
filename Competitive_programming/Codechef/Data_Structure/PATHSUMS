@@ -1,0 +1,32 @@
+import math
+
+ans=[0]*105
+g={}
+def dfs(u,p):
+    ans[u]=(1 if ans[p]==2 else 2)
+    for v in g[u]:
+        if v!=p:
+            dfs(v,u)
+
+t=int(input())
+for _ in range(t):
+    n=int(input())
+    for i in range(n):
+        g[i+1]=[]
+    for i in range(n-1):
+        u,v=map(int,input().split())
+        try:
+            g[u].append(v)
+        except:
+            g[u]=[v]
+        try:
+            g[v].append(u)
+        except:
+            g[v]=[u]
+    ans[0]=1
+    dfs(1,0)
+    print(*ans[1:n+1])
+
+
+    
+

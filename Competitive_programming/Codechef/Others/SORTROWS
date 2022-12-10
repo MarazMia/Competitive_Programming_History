@@ -1,0 +1,13 @@
+import math
+k=int(input())
+ls=[]
+for i in range(k):
+    c = list(map(int,input().split()))
+    ls.append(c)
+ls.sort()
+for i in range(k):
+    for j in range(len(ls[i])):
+        if ls[i][j]!=-1:
+            print(ls[i][j],end=" ")
+    print()
+

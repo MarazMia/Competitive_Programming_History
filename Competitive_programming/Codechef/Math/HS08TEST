@@ -1,0 +1,7 @@
+import math
+a,b=map(float,input().split())
+a=int(a)
+if b>=a+0.5 and a%5==0:
+    print("%.2f"%(b-a-0.5))
+else:
+    print("%.2f"%b)

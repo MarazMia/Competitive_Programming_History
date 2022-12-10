@@ -1,0 +1,10 @@
+for _ in range(int(input())):
+    a=input()
+    b=input()
+    n=len(a)
+    a0=a.count('0')
+    a1=a.count('1')
+    b0=b.count('0')
+    b1=b.count('1')
+    ans=min(a0,b1)+min(a1,b0)
+    print('1'*ans+'0'*(n-ans))

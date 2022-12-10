@@ -1,0 +1,16 @@
+def ans(n):
+    i=1
+    while i*i<=n:
+        bal=(n-2*i)//(2+i)
+        if bal*2+i*2+bal*i==n:
+            return True
+        i+=1
+    return False
+
+for _ in range(int(input())):
+    n=int(input())
+    f=ans(n)
+    if f and n>4:
+        print('YES')
+        continue
+    print('NO')

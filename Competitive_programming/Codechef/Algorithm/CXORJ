@@ -1,0 +1,33 @@
+import math
+#####sorting a dictionary#####
+def dict_sort(ans):
+    ans=sorted(ans.items(),reverse=True,key=lambda kv:(kv[1]))
+flag=[0]*1000002
+def seive_primes():
+    flag[0]=flag[1]=1
+    i=2
+    while i*i<=1000000:
+        if flag[i]==0:
+            j=i*i
+            while j<=1000000:
+                flag[j]=1
+                j+=i
+        i+=1
+def sqr(n):
+    return n*n
+def inp():
+    ls=list(map(int,input().split()))
+    return ls
+n=int(input())
+ans=0
+for ii in range(n):
+    s=input()
+    u=0
+    l=0
+    for i in s:
+        if i.isupper():
+            u+=1
+        else:
+            l+=1
+    ans+=abs(u-l)
+print(ans)
